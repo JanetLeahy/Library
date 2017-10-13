@@ -22,5 +22,10 @@ public class Book {
 	public String getAuthor() {
 		return author;
 	}
+	
+	public String toString() {
+		return title + ", by " + author;
+	}
+	
 
 }

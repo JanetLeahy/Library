@@ -23,20 +23,13 @@ public class LibraryBranch {
 	public String getName() {
 		return name;
 	}
-	
-	public void printBook(Book book) {
-		System.out.println(book.getTitle() + ", by " + book.getAuthor());
-	}
-	
-	public void printDVD(DVD dvd) {
-		System.out.println(dvd.getTitle() + " (" + dvd.getYear() + ")");
-	}
+
 	
 	//prints all books in the catalog
 	public void printBooks() {
 		ListIterator<Book> li = bookCatalog.listIterator();
 		while (li.hasNext()) {
-			printBook(li.next());
+			System.out.println(li.next());
 		}
 	}
 	
@@ -44,7 +37,7 @@ public class LibraryBranch {
 	public void printDVDs() {
 		ListIterator<DVD> li = dvdCatalog.listIterator();
 		while (li.hasNext()) {
-			printDVD(li.next());
+			System.out.println(li.next());
 		}
 	}
 	
