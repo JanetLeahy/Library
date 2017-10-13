@@ -99,29 +99,23 @@ public class Library {
 			System.out.println("Library branch not found");
 		}
 	}
-	
-	//adds the book to the branch with the matching name, if the branch exists
-	public void addBook(Book book, String branchName) {
+
+	//adds the item to the library branch's catalog, if the branch exists
+	// Branch determines which catalog to store it in based on object type,
+	// so casting is necessary
+	public void add(RentableObject item, String branchName) {
 		LibraryBranch branch = branches.get(branchName);
-		if (branch != null) {
-			branch.add(book);
+		if (branch != null && item.getClass() == Book.class) {
+			branch.add((Book) item);
+		}
+		else if (branch != null && item.getClass() == DVD.class) {
+			branch.add((DVD) item);
 		}
 		else {
 			System.out.println("Library branch not found");
 		}
 	}
-	
-	//adds the dvd to the branch with the matching name, if the branch exists
-	public void addDVD(DVD dvd, String branchName) {
-		LibraryBranch branch = branches.get(branchName);
-		if (branch != null) {
-			branch.add(dvd);
-		}
-		else {
-			System.out.println("Library branch not found");
-		}
-	}
-	
+
 	//removes a copy of the book with the given title from the branch with the
 	// provided name, if it exists, and stores the book in booksOut
 	public void checkoutBook(String title, String branchName) {
