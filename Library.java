@@ -171,8 +171,7 @@ public class Library {
 			Book current = null;
 			while (li.hasNext()) {
 				current = li.next();
-				System.out.println(title);
-				if (current.title.equals(title)) {
+				if (current.getTitle().equals(title)) {
 					booksOut.remove(current);
 					branch.add(current);
 					return;
@@ -194,8 +193,7 @@ public class Library {
 			DVD current = null;
 			while (li.hasNext()) {
 				current = li.next();
-				System.out.println(title);
-				if (current.title.equals(title)) {
+				if (current.getTitle().equals(title)) {
 					dvdsOut.remove(current);
 					branch.add(current);
 					return;
