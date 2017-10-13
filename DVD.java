@@ -6,17 +6,12 @@
  * Oct 10 2017
  */
 
-public class DVD {
-	private String title;
+public class DVD extends RentableObject {
 	private int year;
 
 	public DVD(String title, int year) {
-		this.title = title;
+		super(title);
 		this.year = year;
-	}
-
-	public String getTitle() {
-		return title;
 	}
 	
 	public int getYear() {

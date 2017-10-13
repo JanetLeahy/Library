@@ -6,17 +6,12 @@
  * Oct 10 2017
  */
 
-public class Book {
-	private String title;
+public class Book extends RentableObject {
 	private String author;
 
 	public Book(String title, String author) {
-		this.title = title;
+		super(title);
 		this.author = author;
-	}
-	
-	public String getTitle() {
-		return title;
 	}
 	
 	public String getAuthor() {
