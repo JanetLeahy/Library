@@ -10,14 +10,14 @@ import java.util.ListIterator;
 
 public class LibraryBranch {
 	private String name;
-	private ArrayList<Book> bookCatalog;
-	private ArrayList<DVD> dvdCatalog;
+	private ArrayList<RentableObject> bookCatalog;
+	private ArrayList<RentableObject> dvdCatalog;
 	
 	public LibraryBranch(String name) {
 		this.name = name;
 		//ArrayList used for catalog to allow duplicates
-		bookCatalog = new ArrayList<Book>();
-		dvdCatalog = new ArrayList<DVD>();
+		bookCatalog = new ArrayList<RentableObject>();
+		dvdCatalog = new ArrayList<RentableObject>();
 	}
 	
 	public String getName() {
@@ -27,7 +27,7 @@ public class LibraryBranch {
 	
 	//prints all books in the catalog
 	public void printBooks() {
-		ListIterator<Book> li = bookCatalog.listIterator();
+		ListIterator<RentableObject> li = bookCatalog.listIterator();
 		while (li.hasNext()) {
 			System.out.println(li.next());
 		}
@@ -35,7 +35,7 @@ public class LibraryBranch {
 	
 	//prints all dvds in the catalog
 	public void printDVDs() {
-		ListIterator<DVD> li = dvdCatalog.listIterator();
+		ListIterator<RentableObject> li = dvdCatalog.listIterator();
 		while (li.hasNext()) {
 			System.out.println(li.next());
 		}
@@ -59,32 +59,27 @@ public class LibraryBranch {
 	}
 	
 	
-	//finds a book with the given title, removes it from the catalog, and returns it
-	public Book checkoutBook(String title) {
-		ListIterator<Book> li = bookCatalog.listIterator();
-		Book current;
+	public RentableObject checkout(String title, ArrayList<RentableObject> catalog) {
+		ListIterator<RentableObject> li = catalog.listIterator();
+		RentableObject current;
 		while (li.hasNext()) {
 			current = li.next();
 			if (current.getTitle() == title) {
-				bookCatalog.remove(current);
+				catalog.remove(current);
 				return current;
 			}
 		}
 		return null;
 	}
 	
+	//finds a book with the given title, removes it from the catalog, and returns it
+	public Book checkoutBook(String title) {
+		return (Book) checkout(title, bookCatalog);
+	}
+	
 	
 	//finds a dvd with the given title, removes it from the catalog, and returns it
 	public DVD checkoutDVD(String title) {
-		ListIterator<DVD> li = dvdCatalog.listIterator();
-		DVD current;
-		while (li.hasNext()) {
-			current = li.next();
-			if (current.getTitle() == title) {
-				dvdCatalog.remove(current);
-				return current;
-			}
-		}
-		return null;
+		return (DVD) checkout(title, dvdCatalog);
 	}
 }
