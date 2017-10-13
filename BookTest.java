@@ -12,8 +12,8 @@ public class BookTest {
 	@Test
 	public void testBasic() {
 		Book testBook = new Book("Title", "Author");
-		assertEquals(testBook.title, "Title");
-		assertEquals(testBook.author, "Author");
+		assertEquals(testBook.getTitle(), "Title");
+		assertEquals(testBook.getAuthor(), "Author");
 	}
 
 }

@@ -28,7 +28,7 @@ public class LibraryBranchTest {
 		Book b2 = new Book("Title2", "Author");
 		br.add(b2);
 		br.add(new Book("Title3", "Author"));
-		assertEquals(br.checkoutBook(b2.title), b2);
+		assertEquals(br.checkoutBook(b2.getTitle()), b2);
 		assertEquals(br.getNumBooks(), 2);
 	}
 	
@@ -38,7 +38,7 @@ public class LibraryBranchTest {
 		br.add(new DVD("Title1", 2000));
 		DVD dvd = new DVD("Title2", 2001);
 		br.add(dvd);
-		assertEquals(br.checkoutDVD(dvd.title), dvd);
+		assertEquals(br.checkoutDVD(dvd.getTitle()), dvd);
 		assertEquals(br.getNumDVDs(), 1);
 	}
 	
@@ -51,7 +51,7 @@ public class LibraryBranchTest {
 		br.add(new Book("Title3", "Author"));
 		br.add(new Book("Title2", "Author"));
 		//should only remove one of the books with that title
-		assertEquals(br.checkoutBook(b2.title), b2);
+		assertEquals(br.checkoutBook(b2.getTitle()), b2);
 		assertEquals(br.getNumBooks(), 3);
 		//should checkout the second book with that title
 		br.checkoutBook("Title2");

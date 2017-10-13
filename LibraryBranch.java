@@ -25,11 +25,11 @@ public class LibraryBranch {
 	}
 	
 	public void printBook(Book book) {
-		System.out.println(book.title + ", by " + book.author);
+		System.out.println(book.getTitle() + ", by " + book.getAuthor());
 	}
 	
 	public void printDVD(DVD dvd) {
-		System.out.println(dvd.title + " (" + dvd.year + ")");
+		System.out.println(dvd.getTitle() + " (" + dvd.getYear() + ")");
 	}
 	
 	//prints all books in the catalog
@@ -72,7 +72,7 @@ public class LibraryBranch {
 		Book current;
 		while (li.hasNext()) {
 			current = li.next();
-			if (current.title == title) {
+			if (current.getTitle() == title) {
 				bookCatalog.remove(current);
 				return current;
 			}
@@ -87,7 +87,7 @@ public class LibraryBranch {
 		DVD current;
 		while (li.hasNext()) {
 			current = li.next();
-			if (current.title == title) {
+			if (current.getTitle() == title) {
 				dvdCatalog.remove(current);
 				return current;
 			}

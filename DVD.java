@@ -7,13 +7,20 @@
  */
 
 public class DVD {
-	String title;
-	int year;
+	private String title;
+	private int year;
 
 	public DVD(String title, int year) {
 		this.title = title;
 		this.year = year;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+	
+	public int getYear() {
+		return year;
+	}
 
 }
